@@ -1,0 +1,1471 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPltLpwfHtiAu+tX8pNew6a"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HeepdvNrTLAv",
+        "outputId": "24ed59e0-4d16-447c-ccde-bc75e9406969"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a month: august\n",
+            "Summer!\n"
+          ]
+        }
+      ],
+      "source": [
+        "#1. Write a function called check-season, it takes a month parameter and returns the season:Autumn, Winter, Spring or Summer.\n",
+        "def check_season(month):\n",
+        "    month = month.lower()\n",
+        "    if month in [\"december\", \"january\", \"february\"]:\n",
+        "        return \"Winter!\"\n",
+        "    elif month in [\"march\", \"april\", \"may\"]:\n",
+        "        return \"Spring!\"\n",
+        "    elif month in [\"june\", \"july\", \"august\"]:\n",
+        "        return \"Summer!\"\n",
+        "    elif month in [\"september\", \"october\", \"november\"]:\n",
+        "        return \"Autumn!\"\n",
+        "    else:\n",
+        "        return \"Invalid month\"\n",
+        "\n",
+        "month = input(\"Enter a month: \").strip()\n",
+        "print(check_season(month))"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#2. Write a function called calculate_slope which return the slope of a linear equation\n",
+        "def calculate_slope(x1, y1, x2, y2):\n",
+        "    if x1 == x2:\n",
+        "        return \"Undefined slope (vertical line)\"\n",
+        "\n",
+        "    slope = (y2 - y1) / (x2 - x1)\n",
+        "    return slope\n",
+        "\n",
+        "x1, y1 = map(float, input(\"Enter the first point (x1 y1): \").split())\n",
+        "x2, y2 = map(float, input(\"Enter the second point (x2 y2): \").split())\n",
+        "\n",
+        "print(f\"The slope of the line is: {calculate_slope(x1, y1, x2, y2)}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "v9Ed6dRXVSnD",
+        "outputId": "fd7ba750-2d6b-48d6-dc3c-0e334865c752"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the first point (x1 y1): 10 20\n",
+            "Enter the second point (x2 y2): 20 30\n",
+            "The slope of the line is: 1.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#3. Declare a function named print_list. It takes a list as a parameter and it prints out each element of the list.\n",
+        "def print_list(lst):\n",
+        "    for element in lst:\n",
+        "        print(element,end=\" \")\n",
+        "\n",
+        "my_list = list(input(\"Enter a list of elements separated by spaces: \").split())\n",
+        "print_list(my_list)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AtjL7vkVWOqi",
+        "outputId": "4ad84d4c-db73-4ba1-9eed-b09cc62990c6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a list of elements separated by spaces: 10 20 34\n",
+            "10 20 34 "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#4.Declare a function named reverse_list. It takes an array as a parameter and it returns the reverse of the array (use loops).\n",
+        "def rev_arr(arr):\n",
+        "    for i in range(len(arr) - 1, -1, -1):\n",
+        "        print (arr[i], end=\" \")\n",
+        "arr = list(input(\"Enter a list of elements separated by spaces: \").split())\n",
+        "\n",
+        "rev_arr(arr)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "p09XmdyxXfGZ",
+        "outputId": "3c67d7a3-f82d-493e-957e-c4f1b6f2e061"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a list of elements separated by spaces: 1 2 uem\n",
+            "uem 2 1 "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#5.Compute the sum up to n terms in the series 1 - 1/2 + 1/3 - 1/4 + 1/5 -... 1/n where n is a positive integer and input by user.\n",
+        "def compute_series_sum(n):\n",
+        "\n",
+        "    series_sum = 0.0\n",
+        "\n",
+        "    for i in range(1, n + 1):\n",
+        "        sign = (-1) ** (i + 1)\n",
+        "\n",
+        "        series_sum += sign * (1 / i)\n",
+        "\n",
+        "    return series_sum\n",
+        "\n",
+        "n = int(input(\"Enter a positive integer n: \"))\n",
+        "\n",
+        "\n",
+        "if n <= 0:\n",
+        "    print(\"The number must be a positive integer.\")\n",
+        "else:\n",
+        "    result = compute_series_sum(n)\n",
+        "    print(f\"The sum of the series up to {n} terms is: {result}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TJUDLpLKZE7w",
+        "outputId": "173d8e0c-3907-40b2-f341-d88f21cb4d13"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter a positive integer n: 5\n",
+            "The sum of the series up to 5 terms is: 0.7833333333333332\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#6.Write a program to compute sin x for given x. The user should supply x and a positive integer n.\n",
+        "#  We compute the sine of x using the series and the computation should use all terms in the\n",
+        "# series up through the term involving xn\n",
+        "# sin x = x - x3/3! + x5/5! - x7/7! + x9/9! ........\n",
+        "import math\n",
+        "\n",
+        "def compute_sin(x, n):\n",
+        "\n",
+        "    sin_x = 0\n",
+        "    sign = 1\n",
+        "\n",
+        "    for i in range(n):\n",
+        "        # Calculate the term of the series\n",
+        "        term = (x**(2*i + 1)) / math.factorial(2*i + 1)\n",
+        "        sin_x += sign * term\n",
+        "\n",
+        "        # Alternate the sign for the next term\n",
+        "        sign *= -1\n",
+        "\n",
+        "    return sin_x\n",
+        "\n",
+        "\n",
+        "x = float(input(\"Enter the value of x (in radians): \"))\n",
+        "n = int(input(\"Enter the number of terms to use in the series: \"))\n",
+        "\n",
+        "\n",
+        "result = compute_sin(x, n)\n",
+        "\n",
+        "print(f\"sin({x}) computed using {n} terms is: {result}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "T-gRgy8oAuNJ",
+        "outputId": "85c62a4e-f7d5-4e7a-b66a-f0bee3c9ded6"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the value of x (in radians): 1\n",
+            "Enter the number of terms to use in the series: 5\n",
+            "sin(1.0) computed using 5 terms is: 0.8414710097001764\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#7.Write a program to compute cosine of x. The user should supply x and a positive integer n.\n",
+        "# We compute the cosine of x using the series and the computation should use all terms in the\n",
+        "# series up through the term involving xn\n",
+        "# cos x = 1 - x2/2! + x4/4! - x6/6! ....\n",
+        "\n",
+        "import math\n",
+        "\n",
+        "def compute_cos(x, n):\n",
+        "\n",
+        "    cos_x = 0\n",
+        "    sign = 1\n",
+        "\n",
+        "    for i in range(n):\n",
+        "\n",
+        "        term = (x**(2*i)) / math.factorial(2*i)\n",
+        "        cos_x += sign * term\n",
+        "\n",
+        "\n",
+        "        sign *= -1\n",
+        "\n",
+        "    return cos_x\n",
+        "\n",
+        "x = float(input(\"Enter the value of x (in radians): \"))\n",
+        "n = int(input(\"Enter the number of terms to use in the series: \"))\n",
+        "5\n",
+        "result = compute_cos(x, n)\n",
+        "\n",
+        "print(f\"cos({x}) computed using {n} terms is: {result}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-JG6KgtTBaMQ",
+        "outputId": "5365a65c-478f-4f38-a603-99cbb763396f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the value of x (in radians): 1\n",
+            "Enter the number of terms to use in the series: 5\n",
+            "cos(1.0) computed using 5 terms is: 0.5403025793650793\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#8.Print the pattern upto N Lines:\n",
+        "\n",
+        "# .\n",
+        "# /_\\\n",
+        "# .\n",
+        "# / \\\n",
+        "# /___\\\n",
+        "# .\n",
+        "# / \\\n",
+        "# / \\\n",
+        "# /_____\\\n",
+        "\n",
+        "# N=2 N=3 N=4\n",
+        "def print_pattern(N):\n",
+        "\n",
+        "    if N >= 1:\n",
+        "        print(\" \" * (N - 1) + \".\")\n",
+        "\n",
+        "    for i in range(1, N):\n",
+        "\n",
+        "        print(\" \" * (N - i - 1), end=\"\")\n",
+        "\n",
+        "        print(\"/\", end=\"\")\n",
+        "\n",
+        "        if i == N - 1:\n",
+        "\n",
+        "            print(\"_\" * (2 * i - 1), end=\"\")\n",
+        "        else:\n",
+        "\n",
+        "            print(\" \" * (2 * i - 1), end=\"\")\n",
+        "\n",
+        "        print(\"\\\\\")\n",
+        "\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_pattern(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0t-pVISaB2F6",
+        "outputId": "e912c371-ccc6-4939-a9c0-e591b1d26a58"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 2\n",
+            " .\n",
+            "/_\\\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#8.Print the pattern upto N Lines:\n",
+        "\n",
+        "# .\n",
+        "# /_\\\n",
+        "# .\n",
+        "# / \\\n",
+        "# /___\\\n",
+        "# .\n",
+        "# / \\\n",
+        "# / \\\n",
+        "# /_____\\\n",
+        "\n",
+        "# N=2 N=3 N=4\n",
+        "def print_pattern(N):\n",
+        "\n",
+        "    if N >= 1:\n",
+        "        print(\" \" * (N - 1) + \".\")\n",
+        "\n",
+        "    for i in range(1, N):\n",
+        "\n",
+        "        print(\" \" * (N - i - 1), end=\"\")\n",
+        "\n",
+        "        print(\"/\", end=\"\")\n",
+        "\n",
+        "        if i == N - 1:\n",
+        "\n",
+        "            print(\"_\" * (2 * i - 1), end=\"\")\n",
+        "        else:\n",
+        "\n",
+        "            print(\" \" * (2 * i - 1), end=\"\")\n",
+        "\n",
+        "        print(\"\\\\\")\n",
+        "\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_pattern(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ivYqspYPEk0x",
+        "outputId": "3ad79e7c-db8b-4faa-d116-d1f6896ba9aa"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 3\n",
+            "  .\n",
+            " / \\\n",
+            "/___\\\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#8.Print the pattern upto N Lines:\n",
+        "\n",
+        "# .\n",
+        "# /_\\\n",
+        "# .\n",
+        "# / \\\n",
+        "# /___\\\n",
+        "# .\n",
+        "# / \\\n",
+        "# / \\\n",
+        "# /_____\\\n",
+        "\n",
+        "# N=2 N=3 N=4\n",
+        "def print_pattern(N):\n",
+        "\n",
+        "    if N >= 1:\n",
+        "        print(\" \" * (N - 1) + \".\")\n",
+        "\n",
+        "    for i in range(1, N):\n",
+        "\n",
+        "        print(\" \" * (N - i - 1), end=\"\")\n",
+        "\n",
+        "        print(\"/\", end=\"\")\n",
+        "\n",
+        "        if i == N - 1:\n",
+        "\n",
+        "            print(\"_\" * (2 * i - 1), end=\"\")\n",
+        "        else:\n",
+        "\n",
+        "            print(\" \" * (2 * i - 1), end=\"\")\n",
+        "\n",
+        "        print(\"\\\\\")\n",
+        "\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_pattern(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-ibesTnYErkC",
+        "outputId": "295387a1-1029-40ba-a914-5e9555e3b70f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 4\n",
+            "   .\n",
+            "  / \\\n",
+            " /   \\\n",
+            "/_____\\\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#9.10. Print a number as a 8 segment display N Lines:\n",
+        "\n",
+        "# _\n",
+        "# _|\n",
+        "# |_\n",
+        "# _\n",
+        "# _|\n",
+        "# _|\n",
+        "# |_|\n",
+        "#   |\n",
+        "# N=2 N=3 N=4\n",
+        "def print_8_segment_display(N):\n",
+        "\n",
+        "    if N == 2:\n",
+        "        print(\"  _ \")\n",
+        "        print(\"  _| \")\n",
+        "        print(\" |_\")\n",
+        "\n",
+        "\n",
+        "    elif N == 3:\n",
+        "        print(\"  _ \")\n",
+        "        print(\"  _| \")\n",
+        "        print(\"  _|  \")\n",
+        "\n",
+        "\n",
+        "    elif N == 4:\n",
+        "        print(\"|_|\")\n",
+        "        print(\"  |\")\n",
+        "\n",
+        "    else:\n",
+        "        print(\"Pattern not available for N =\", N)\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_8_segment_display(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OCwxEOt-EvLA",
+        "outputId": "59770905-ca99-460c-c904-cf2d28adca0a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 2\n",
+            "  _ \n",
+            "  _| \n",
+            " |_\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#9.10. Print a number as a 8 segment display N Lines:\n",
+        "\n",
+        "# _\n",
+        "# _|\n",
+        "# |_\n",
+        "# _\n",
+        "# _|\n",
+        "# _|\n",
+        "# |_|\n",
+        "#   |\n",
+        "# N=2 N=3 N=4\n",
+        "def print_8_segment_display(N):\n",
+        "\n",
+        "    if N == 2:\n",
+        "        print(\"  _ \")\n",
+        "        print(\"  _| \")\n",
+        "        print(\" |_\")\n",
+        "\n",
+        "\n",
+        "    elif N == 3:\n",
+        "        print(\"  _ \")\n",
+        "        print(\"  _| \")\n",
+        "        print(\"  _|  \")\n",
+        "\n",
+        "\n",
+        "    elif N == 4:\n",
+        "        print(\"|_|\")\n",
+        "        print(\"  |\")\n",
+        "\n",
+        "    else:\n",
+        "        print(\"Pattern not available for N =\", N)\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_8_segment_display(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "f91M49uhGe_o",
+        "outputId": "e47e083e-e97f-48e6-d909-d8ca0e2fb2fd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 3\n",
+            "  _ \n",
+            "  _| \n",
+            "  _|  \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#9.10. Print a number as a 8 segment display N Lines:\n",
+        "\n",
+        "# _\n",
+        "# _|\n",
+        "# |_\n",
+        "# _\n",
+        "# _|\n",
+        "# _|\n",
+        "# |_|\n",
+        "#   |\n",
+        "# N=2 N=3 N=4\n",
+        "def print_8_segment_display(N):\n",
+        "\n",
+        "    if N == 2:\n",
+        "        print(\"  _ \")\n",
+        "        print(\"  _| \")\n",
+        "        print(\" |_\")\n",
+        "\n",
+        "\n",
+        "    elif N == 3:\n",
+        "        print(\"  _ \")\n",
+        "        print(\"  _| \")\n",
+        "        print(\"  _|  \")\n",
+        "\n",
+        "\n",
+        "    elif N == 4:\n",
+        "        print(\"|_|\")\n",
+        "        print(\"  |\")\n",
+        "\n",
+        "    else:\n",
+        "        print(\"Pattern not available for N =\", N)\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_8_segment_display(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "KgJZ80-RGho5",
+        "outputId": "d0cd1eb0-867d-4ba8-ae36-08a5ee3cab98"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 4\n",
+            "|_|\n",
+            "  |\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#10. Print the pattern upto N lines:\n",
+        "# 1 2\n",
+        "# 4 3\n",
+        "\n",
+        "# 1 2 3\n",
+        "# 8 9 4\n",
+        "# 7 6 5\n",
+        "\n",
+        "# 1 2 3 4\n",
+        "# 12 13 14 5\n",
+        "# 11 16 15 6\n",
+        "# 10 9 8 7\n",
+        "# N=2 N=3 N=4\n",
+        "def print_spiral_pattern(N):\n",
+        "\n",
+        "\n",
+        "    matrix = [[0] * N for _ in range(N)]\n",
+        "\n",
+        "    num = 1\n",
+        "    top, bottom = 0, N - 1\n",
+        "    left, right = 0, N - 1\n",
+        "\n",
+        "    while top <= bottom and left <= right:\n",
+        "\n",
+        "        for i in range(left, right + 1):\n",
+        "            matrix[top][i] = num\n",
+        "            num += 1\n",
+        "        top += 1\n",
+        "\n",
+        "\n",
+        "        for i in range(top, bottom + 1):\n",
+        "            matrix[i][right] = num\n",
+        "            num += 1\n",
+        "        right -= 1\n",
+        "\n",
+        "\n",
+        "        for i in range(right, left - 1, -1):\n",
+        "            matrix[bottom][i] = num\n",
+        "            num += 1\n",
+        "        bottom -= 1\n",
+        "\n",
+        "        for i in range(bottom, top - 1, -1):\n",
+        "            matrix[i][left] = num\n",
+        "            num += 1\n",
+        "        left += 1\n",
+        "\n",
+        "\n",
+        "    for row in matrix:\n",
+        "        print(' '.join(map(str, row)))\n",
+        "\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "print_spiral_pattern(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Z8urAw_WGqXQ",
+        "outputId": "8c2ddf3a-7057-48a2-dd83-11c5662ed50f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 2\n",
+            "1 2\n",
+            "4 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#10. Print the pattern upto N lines:\n",
+        "# 1 2\n",
+        "# 4 3\n",
+        "\n",
+        "# 1 2 3\n",
+        "# 8 9 4\n",
+        "# 7 6 5\n",
+        "\n",
+        "# 1 2 3 4\n",
+        "# 12 13 14 5\n",
+        "# 11 16 15 6\n",
+        "# 10 9 8 7\n",
+        "# N=2 N=3 N=4\n",
+        "def print_spiral_pattern(N):\n",
+        "\n",
+        "    matrix = [[0] * N for _ in range(N)]\n",
+        "\n",
+        "    num = 1\n",
+        "    top, bottom = 0, N - 1\n",
+        "    left, right = 0, N - 1\n",
+        "\n",
+        "    while top <= bottom and left <= right:\n",
+        "\n",
+        "        for i in range(left, right + 1):\n",
+        "            matrix[top][i] = num\n",
+        "            num += 1\n",
+        "        top += 1\n",
+        "\n",
+        "        for i in range(top, bottom + 1):\n",
+        "            matrix[i][right] = num\n",
+        "            num += 1\n",
+        "        right -= 1\n",
+        "\n",
+        "        for i in range(right, left - 1, -1):\n",
+        "            matrix[bottom][i] = num\n",
+        "            num += 1\n",
+        "        bottom -= 1\n",
+        "\n",
+        "\n",
+        "        for i in range(bottom, top - 1, -1):\n",
+        "            matrix[i][left] = num\n",
+        "            num += 1\n",
+        "        left += 1\n",
+        "\n",
+        "    for row in matrix:\n",
+        "        print(' '.join(map(str, row)))\n",
+        "\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "\n",
+        "print_spiral_pattern(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "pImD856AHMeZ",
+        "outputId": "d970dfde-aa59-446e-b382-0e4e26224c1d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 3\n",
+            "1 2 3\n",
+            "8 9 4\n",
+            "7 6 5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#10. Print the pattern upto N lines:\n",
+        "# 1 2\n",
+        "# 4 3\n",
+        "\n",
+        "# 1 2 3\n",
+        "# 8 9 4\n",
+        "# 7 6 5\n",
+        "\n",
+        "# 1 2 3 4\n",
+        "# 12 13 14 5\n",
+        "# 11 16 15 6\n",
+        "# 10 9 8 7\n",
+        "# N=2 N=3 N=4\n",
+        "def print_spiral_pattern(N):\n",
+        "\n",
+        "    matrix = [[0] * N for _ in range(N)]\n",
+        "\n",
+        "    num = 1\n",
+        "    top, bottom = 0, N - 1\n",
+        "    left, right = 0, N - 1\n",
+        "\n",
+        "    while top <= bottom and left <= right:\n",
+        "\n",
+        "        for i in range(left, right + 1):\n",
+        "            matrix[top][i] = num\n",
+        "            num += 1\n",
+        "        top += 1\n",
+        "\n",
+        "        for i in range(top, bottom + 1):\n",
+        "            matrix[i][right] = num\n",
+        "            num += 1\n",
+        "        right -= 1\n",
+        "\n",
+        "        for i in range(right, left - 1, -1):\n",
+        "            matrix[bottom][i] = num\n",
+        "            num += 1\n",
+        "        bottom -= 1\n",
+        "\n",
+        "\n",
+        "        for i in range(bottom, top - 1, -1):\n",
+        "            matrix[i][left] = num\n",
+        "            num += 1\n",
+        "        left += 1\n",
+        "\n",
+        "    for row in matrix:\n",
+        "        print(' '.join(map(str, row)))\n",
+        "\n",
+        "\n",
+        "N = int(input(\"Enter the number of lines (N): \"))\n",
+        "\n",
+        "\n",
+        "print_spiral_pattern(N)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "-iYTfclBHe7Q",
+        "outputId": "ebc2e552-7b57-4647-b252-32bc73c66319"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of lines (N): 4\n",
+            "1 2 3 4\n",
+            "12 13 14 5\n",
+            "11 16 15 6\n",
+            "10 9 8 7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#11. Write a python script that displays the following table\n",
+        "# 1 1 1 1 1\n",
+        "# 2 1 2 4 8\n",
+        "# 3 1 3 9 27\n",
+        "# 4 1 4 16 64\n",
+        "# 5 1 5 25 125\n",
+        "def print_table():\n",
+        "\n",
+        "    num_rows = 5\n",
+        "    num_cols = 5\n",
+        "\n",
+        "    for i in range(1, num_rows + 1):\n",
+        "\n",
+        "        row = []\n",
+        "        for j in range(num_cols):\n",
+        "            if j == 0:\n",
+        "\n",
+        "                row.append(i)\n",
+        "            elif j == 1:\n",
+        "\n",
+        "                row.append(1)\n",
+        "            else:\n",
+        "\n",
+        "                row.append(i ** (j - 1))\n",
+        "\n",
+        "\n",
+        "        print(\" \".join(map(str, row)))\n",
+        "\n",
+        "print_table()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bmoeUlgPHni_",
+        "outputId": "eb9ef4fd-b87b-4c59-da91-b0dc10f9c7d5"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 1 1 1 1\n",
+            "2 1 2 4 8\n",
+            "3 1 3 9 27\n",
+            "4 1 4 16 64\n",
+            "5 1 5 25 125\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#12. Write a program to find median of a set of numbers.\n",
+        "def find_median(numbers):\n",
+        "\n",
+        "    sorted_numbers = sorted(numbers)\n",
+        "\n",
+        "\n",
+        "    n = len(sorted_numbers)\n",
+        "\n",
+        "    if n % 2 == 1:\n",
+        "\n",
+        "        median = sorted_numbers[n // 2]\n",
+        "    else:\n",
+        "\n",
+        "        mid1 = sorted_numbers[n // 2 - 1]\n",
+        "        mid2 = sorted_numbers[n // 2]\n",
+        "        median = (mid1 + mid2) / 2\n",
+        "\n",
+        "    return median\n",
+        "\n",
+        "\n",
+        "user_input = input(\"Enter numbers separated by spaces: \")\n",
+        "numbers = list(map(float, user_input.split()))\n",
+        "\n",
+        "\n",
+        "median = find_median(numbers)\n",
+        "print(\"Median:\", median)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "c6DR-nqUOeqV",
+        "outputId": "14a180d4-8b85-4f68-ba9c-0fa9b79ca7df"
+      },
+      "execution_count": 34,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter numbers separated by spaces: 1 2 6 5 9 \n",
+            "Median: 5.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#13.Write a program to compute the value of Euler’s number that is used as the base of\n",
+        "# natural logarithms. Use the following formula.\n",
+        "# e= 1+ 1/1! +1 /2! + 1/3+................ 1/n!\n",
+        "import math\n",
+        "\n",
+        "def compute_euler_number(n):\n",
+        "\n",
+        "    e = 1.0\n",
+        "\n",
+        "    for i in range(1, n + 1):\n",
+        "        e += 1 / math.factorial(i)\n",
+        "\n",
+        "    return e\n",
+        "\n",
+        "\n",
+        "n = int(input(\"Enter the number of terms (n): \"))\n",
+        "\n",
+        "euler_number = compute_euler_number(n)\n",
+        "print(f\"Computed value of e: {euler_number:.2f}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "BC9n_7qSPFEN",
+        "outputId": "8c32c8fe-ad53-467e-aba4-e6f5bf058547"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the number of terms (n): 5\n",
+            "Computed value of e: 2.72\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#14. Write a program to generate all combination of 1, 2, or 3 using loop.\n",
+        "def generate_combinations():\n",
+        "    numbers = [1, 2, 3]\n",
+        "\n",
+        "\n",
+        "    for i in numbers:\n",
+        "\n",
+        "        print(i)\n",
+        "\n",
+        "    for i in numbers:\n",
+        "        for j in numbers:\n",
+        "\n",
+        "            print(i, j)\n",
+        "\n",
+        "    for i in numbers:\n",
+        "        for j in numbers:\n",
+        "            for k in numbers:\n",
+        "\n",
+        "                print(i, j, k)\n",
+        "\n",
+        "generate_combinations()\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "1jyNn2HMPkP9",
+        "outputId": "fc82878b-7946-4cc2-fe72-c2000f9bc4be"
+      },
+      "execution_count": 37,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1\n",
+            "2\n",
+            "3\n",
+            "1 1\n",
+            "1 2\n",
+            "1 3\n",
+            "2 1\n",
+            "2 2\n",
+            "2 3\n",
+            "3 1\n",
+            "3 2\n",
+            "3 3\n",
+            "1 1 1\n",
+            "1 1 2\n",
+            "1 1 3\n",
+            "1 2 1\n",
+            "1 2 2\n",
+            "1 2 3\n",
+            "1 3 1\n",
+            "1 3 2\n",
+            "1 3 3\n",
+            "2 1 1\n",
+            "2 1 2\n",
+            "2 1 3\n",
+            "2 2 1\n",
+            "2 2 2\n",
+            "2 2 3\n",
+            "2 3 1\n",
+            "2 3 2\n",
+            "2 3 3\n",
+            "3 1 1\n",
+            "3 1 2\n",
+            "3 1 3\n",
+            "3 2 1\n",
+            "3 2 2\n",
+            "3 2 3\n",
+            "3 3 1\n",
+            "3 3 2\n",
+            "3 3 3\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#15. Write a program to read two integer values m and n and to decide and print\n",
+        "# whether m is multiple of n.\n",
+        "def check_multiple(m, n):\n",
+        "    if n == 0:\n",
+        "\n",
+        "        print(\"Error: Division by zero is not allowed.\")\n",
+        "        return False\n",
+        "\n",
+        "    return m % n == 0\n",
+        "\n",
+        "def get_integer_input(prompt):\n",
+        "\n",
+        "    while True:\n",
+        "        user_input = input(prompt)\n",
+        "\n",
+        "\n",
+        "        if user_input.isdigit():\n",
+        "            return int(user_input)\n",
+        "        else:\n",
+        "            print(\"Invalid input. Please enter a valid integer.\")\n",
+        "\n",
+        "\n",
+        "m = get_integer_input(\"Enter the first integer (m): \")\n",
+        "n = get_integer_input(\"Enter the second integer (n): \")\n",
+        "\n",
+        "if check_multiple(m, n):\n",
+        "    print(f\"{m} is a multiple of {n}.\")\n",
+        "else:\n",
+        "    print(f\"{m} is not a multiple of {n}.\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6frwRUJ3P7Vr",
+        "outputId": "6fee3525-0374-4587-b0d5-422a3748e8a4"
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the first integer (m): 12\n",
+            "Enter the second integer (n): 3\n",
+            "12 is a multiple of 3.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#16. Write a program to display prime numbers between a given interval.\n",
+        "def is_prime(num):\n",
+        "    if num <= 1:\n",
+        "        return False\n",
+        "    if num <= 3:\n",
+        "        return True\n",
+        "    if num % 2 == 0 or num % 3 == 0:\n",
+        "        return False\n",
+        "    i = 5\n",
+        "    while i * i <= num:\n",
+        "        if num % i == 0 or num % (i + 2) == 0:\n",
+        "            return False\n",
+        "        i += 6\n",
+        "    return True\n",
+        "\n",
+        "def display_primes(start, end):\n",
+        "    for num in range(start, end + 1):\n",
+        "        if is_prime(num):\n",
+        "            print(num, end=' ')\n",
+        "\n",
+        "start = int(input(\"Enter the start of the interval: \"))\n",
+        "end = int(input(\"Enter the end of the interval: \"))\n",
+        "\n",
+        "display_primes(start, end)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "twFf3qR1Q35E",
+        "outputId": "edbb7f41-d314-4a40-edb4-4329567d633b"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter the start of the interval: 10\n",
+            "Enter the end of the interval: 20\n",
+            "11 13 17 19 "
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#17. Print the pattern\n",
+        "\n",
+        "# 1\n",
+        "# 2 3 4\n",
+        "# 5 6 7 8 9\n",
+        "def print_pattern(rows):\n",
+        "    current_number = 1\n",
+        "    for i in range(1, rows + 1):\n",
+        "        for j in range(2 * i - 1):\n",
+        "            print(current_number, end=' ')\n",
+        "            current_number += 1\n",
+        "        print()\n",
+        "\n",
+        "rows = 3\n",
+        "print_pattern(rows)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_E0iaUfHSEUz",
+        "outputId": "866f0443-a540-4a79-9d05-636adfd41840"
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1 \n",
+            "2 3 4 \n",
+            "5 6 7 8 9 \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 18. Print the pattern\n",
+        "#          1\n",
+        "#        2 1 2\n",
+        "#     3 2 1 2 3\n",
+        "#  4 3 2 1 2 3 4\n",
+        "def print_pattern(n):\n",
+        "    for i in range(1, n + 1):\n",
+        "\n",
+        "        print(' ' * (n - i) * 2, end='')\n",
+        "\n",
+        "\n",
+        "        for j in range(i, 0, -1):\n",
+        "            print(j, end=' ')\n",
+        "\n",
+        "        for j in range(2, i + 1):\n",
+        "            print(j, end=' ')\n",
+        "\n",
+        "\n",
+        "        print()\n",
+        "\n",
+        "n = 4\n",
+        "print_pattern(n)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "bShWXBCrSZm9",
+        "outputId": "4f24749b-b8a9-4264-d94b-718b5d76235e"
+      },
+      "execution_count": 44,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "      1 \n",
+            "    2 1 2 \n",
+            "  3 2 1 2 3 \n",
+            "4 3 2 1 2 3 4 \n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 19. Print the pattern\n",
+        "# 1          1\n",
+        "#    2      2\n",
+        "#      3  3\n",
+        "#        4\n",
+        "def print_pattern(n):\n",
+        "    for i in range(1, n + 1):\n",
+        "\n",
+        "        print(' ' * (i - 1) * 2, end='')\n",
+        "\n",
+        "\n",
+        "        print(i, end='')\n",
+        "\n",
+        "\n",
+        "        if i < n:\n",
+        "            print(' ' * (4 * (n - i) - 1), end='')\n",
+        "\n",
+        "            print(i, end='')\n",
+        "\n",
+        "        print()\n",
+        "\n",
+        "\n",
+        "n = 4\n",
+        "print_pattern(n)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yeuIvJ8KSzQE",
+        "outputId": "c1b934b8-77ff-4a05-81c9-3ae49ee85052"
+      },
+      "execution_count": 50,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "1           1\n",
+            "  2       2\n",
+            "    3   3\n",
+            "      4\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#20. Write a program to calculate Sum & Average of an integer array\n",
+        "def sum_avg(list_num):\n",
+        "    total_sum = 0\n",
+        "    for num in list_num:\n",
+        "        total_sum += num\n",
+        "    avg = total_sum / len(list_num) if list_num else 0\n",
+        "    print(f\"Sum: {total_sum}, Average: {avg:.2f}\")\n",
+        "\n",
+        "input_str = input(\"Enter numbers separated by spaces: \")\n",
+        "list_num = list(map(int, input_str.split()))\n",
+        "\n",
+        "# Calculate and print sum and average\n",
+        "sum_avg(list_num)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6jKrLIueTPqr",
+        "outputId": "c385bac7-3c02-459b-d9a1-283c86eca20a"
+      },
+      "execution_count": 52,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Enter numbers separated by spaces: 10 20 30\n",
+            "Sum: 60, Average: 20.00\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "#21.Write a program to implement stack using array.\n",
+        "class Stack:\n",
+        "    def __init__(self):\n",
+        "        self.stack = []\n",
+        "\n",
+        "    def push(self, value):\n",
+        "        self.stack.append(value)\n",
+        "        print(f\"After Pushing {value}: {self.stack}\")\n",
+        "\n",
+        "    def pop(self):\n",
+        "        if not self.is_empty():\n",
+        "            removed_value = self.stack.pop()\n",
+        "            print(f\"After Popping: {self.stack}\")\n",
+        "            return removed_value\n",
+        "        else:\n",
+        "            print(\"Stack is empty. Cannot pop.\")\n",
+        "\n",
+        "    def peek(self):\n",
+        "        if not self.is_empty():\n",
+        "            return self.stack[-1]\n",
+        "        else:\n",
+        "            print(\"Stack is empty. No element to peek.\")\n",
+        "\n",
+        "    def is_empty(self):\n",
+        "        return len(self.stack) == 0\n",
+        "\n",
+        "    def display(self):\n",
+        "        print(f\"Stack: {self.stack}\")\n",
+        "\n",
+        "stack = Stack()\n",
+        "stack.push(10)\n",
+        "stack.push(20)\n",
+        "stack.push(30)\n",
+        "stack.push(40)\n",
+        "stack.display()\n",
+        "stack.push(50)\n",
+        "stack.pop()\n",
+        "print(f\"Peek: {stack.peek()}\")\n",
+        "\n",
+        "\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yTWe6M0NVCl9",
+        "outputId": "6e871122-3937-4f47-fcd9-5d2fc23b8352"
+      },
+      "execution_count": 57,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "After Pushing 10: [10]\n",
+            "After Pushing 20: [10, 20]\n",
+            "After Pushing 30: [10, 20, 30]\n",
+            "After Pushing 40: [10, 20, 30, 40]\n",
+            "Stack: [10, 20, 30, 40]\n",
+            "After Pushing 50: [10, 20, 30, 40, 50]\n",
+            "After Popping: [10, 20, 30, 40]\n",
+            "Peek: 40\n"
+          ]
+        }
+      ]
+    }
+  ]
+}
