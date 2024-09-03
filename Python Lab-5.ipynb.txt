@@ -1,0 +1,995 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyNVyxZE4sNqq8w5j5SKvADj"
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "code",
+      "execution_count": null,
+      "metadata": {
+        "id": "ZLJ3r6oJIU2Z"
+      },
+      "outputs": [],
+      "source": [
+        "# 1.The following is a list of 10 students ages:\n",
+        "# ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]\n",
+        "ages = [19, 22, 19, 24, 20, 25, 26, 24, 25, 24]\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Sort the list and find the min and max age\n",
+        "ages.sort()\n",
+        "min_age = ages[0]\n",
+        "max_age = ages[-1]\n",
+        "print(f\"Sorted ages: {ages}\")\n",
+        "print(f\"Min age: {min_age}, Max age: {max_age}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "43eawpltJTye",
+        "outputId": "ba7169f3-debf-46b3-ce08-74a9dc60378b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Sorted ages: [19, 19, 20, 22, 24, 24, 24, 25, 25, 26]\n",
+            "Min age: 19, Max age: 26\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Add the min age and the max age again to the list\n",
+        "ages.append(min_age)\n",
+        "ages.append(max_age)\n",
+        "print(f\"Updated ages list: {ages}\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "s96cn_ACJWPs",
+        "outputId": "da13c2d5-39d8-4e04-fad3-01ad2e8633a8"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Updated ages list: [19, 19, 20, 22, 24, 24, 24, 25, 25, 26, 19, 26]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Find the median age (one middle item or two middle items divided by two)\n",
+        "n = len(ages)\n",
+        "if n % 2 == 1:\n",
+        "    median_age = ages[n // 2]\n",
+        "else:\n",
+        "    median_age = (ages[n // 2 - 1] + ages[n // 2]) / 2\n",
+        "print(f\"Median age: {median_age}\")\n",
+        "\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "jZ_pe3HrJX2V",
+        "outputId": "01cd7946-af8f-49d6-c0af-10152a2b15b0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Median age: 24.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Find the average age (sum of all items divided by their number )\n",
+        "average_age = sum(ages) / len(ages)\n",
+        "print(f\"Average age: {average_age}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "tCxCezgGJZJd",
+        "outputId": "77e17114-3c26-46f0-f811-09bcbdf9d37b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Average age: 22.75\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Find the range of the ages (max minus min)\n",
+        "age_range = max_age - min_age\n",
+        "print(f\"Range of ages: {age_range}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "wn1gc38wJdpl",
+        "outputId": "e2e11f3a-ca7b-4938-f533-e94cd8ecb084"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Range of ages: 7\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Compare the value of (min - average) and (max - average), use _abs()_ method\n",
+        "diff_min_avg = abs(min_age - average_age)\n",
+        "diff_max_avg = abs(max_age - average_age)\n",
+        "print(f\"Difference between min and average: {diff_min_avg}\")\n",
+        "print(f\"Difference between max and average: {diff_max_avg}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2JjC0Os1JgaN",
+        "outputId": "479e1fed-a97d-42a0-fdbe-09d9943ee7ab"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Difference between min and average: 3.75\n",
+            "Difference between max and average: 3.25\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        " # 2.Iterate through the list, ['Python', 'Numpy','Pandas','Django', 'Flask'] using a for loop and print out the items.\n",
+        "\n",
+        "technologies = ['Python', 'Numpy', 'Pandas', 'Django', 'Flask']\n",
+        "for tech in technologies:\n",
+        "    print(tech)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "32G6P4u-I1fE",
+        "outputId": "b7a699f4-8331-4ee9-c5f0-8ed65a8f9699"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Python\n",
+            "Numpy\n",
+            "Pandas\n",
+            "Django\n",
+            "Flask\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 3.Create fruits, vegetables and animal products tuples.\n",
+        "# Join the three tuples and assign it to a variable called food_stuff_tp.\n",
+        "\n",
+        "fruits = ('apple', 'banana', 'orange')\n",
+        "vegetables = ('carrot', 'potato', 'broccoli')\n",
+        "animal_products = ('milk', 'cheese', 'yogurt')\n",
+        "food_stuff_tp = fruits + vegetables + animal_products\n",
+        "print(f\"Food stuff tuple: {food_stuff_tp}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ghTadnWwJEa9",
+        "outputId": "1a220f45-306a-4320-d7d4-6ac609ae3be5"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Food stuff tuple: ('apple', 'banana', 'orange', 'carrot', 'potato', 'broccoli', 'milk', 'cheese', 'yogurt')\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Change the about food_stuff_tp  tuple to a food_stuff_lt list\n",
+        "food_stuff_lt = list(food_stuff_tp)\n",
+        "print(f\"Food stuff list: {food_stuff_lt}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Tk3mg37VKk-V",
+        "outputId": "370cbd7c-a282-41c8-a5a6-0e15fb498068"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Food stuff list: ['apple', 'banana', 'orange', 'carrot', 'potato', 'broccoli', 'milk', 'cheese', 'yogurt']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Slice out the middle item or items from the food_stuff_tp tuple or food_stuff_lt list.\n",
+        "def get_middle_items(sequence):\n",
+        "    n = len(sequence)\n",
+        "    if n % 2 == 1:\n",
+        "        # Odd length: single middle item\n",
+        "        middle_item = sequence[n // 2]\n",
+        "        return (middle_item,)\n",
+        "    else:\n",
+        "        # Even length: two middle items\n",
+        "        middle_items = sequence[n // 2 - 1:n // 2 + 1]\n",
+        "        return middle_items\n",
+        "\n",
+        "# Slicing middle items from tuple\n",
+        "middle_items_tp = get_middle_items(food_stuff_tp)\n",
+        "print(f\"Middle item(s) from tuple: {middle_items_tp}\")\n",
+        "\n",
+        "# Slicing middle items from list\n",
+        "middle_items_lt = get_middle_items(food_stuff_lt)\n",
+        "print(f\"Middle item(s) from list: {middle_items_lt}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "a5by8Cs6Ko32",
+        "outputId": "4591e7b5-a3b0-460e-ed69-59d11ab44df7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Middle item(s) from tuple: ('potato',)\n",
+            "Middle item(s) from list: ('potato',)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Slice out the first three items and the last three items from food_staff_lt list\n",
+        "first_three = food_stuff_lt[:3]\n",
+        "last_three = food_stuff_lt[-3:]\n",
+        "print(f\"First three items: {first_three}\")\n",
+        "print(f\"Last three items: {last_three}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_4y9qHpcKqeO",
+        "outputId": "5c1ec5bb-3600-4808-9226-b24fc83af0e7"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "First three items: ['apple', 'banana', 'orange']\n",
+            "Last three items: ['milk', 'cheese', 'yogurt']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Delete the food_staff_tp tuple completely\n",
+        "del food_stuff_tp\n"
+      ],
+      "metadata": {
+        "id": "WnFoYb5FKr2d"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 4. From the above sets A and B\n",
+        "# Join A and B\n",
+        "A = {19, 22, 24, 20, 25, 26}\n",
+        "B = {19, 22, 20, 25, 26, 24, 28, 27}\n",
+        "\n",
+        "union_AB = A | B\n",
+        "print(f\"Union of A and B: {union_AB}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QASm445ILudH",
+        "outputId": "4d7a5125-687c-402d-9b3b-86510991b002"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Union of A and B: {19, 20, 22, 24, 25, 26, 27, 28}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Find A intersection B\n",
+        "\n",
+        "intersection_AB = A & B\n",
+        "print(f\"Intersection of A and B: {intersection_AB}\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8Uge8UJuMWq-",
+        "outputId": "63c79ea0-dafa-47b6-a76e-70146c9341b3"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Intersection of A and B: {19, 20, 22, 24, 25, 26}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Is A subset of B\n",
+        "is_subset = A.issubset(B)\n",
+        "print(f\"Is A a subset of B: {is_subset}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "faasVbjbMYXG",
+        "outputId": "719ef9c4-5f39-4028-b22b-9c422cff48f0"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Is A a subset of B: True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Are A and B disjoint sets\n",
+        "are_disjoint = A.isdisjoint(B)\n",
+        "print(f\"Are A and B disjoint sets: {are_disjoint}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "LGcbxx9vMaQd",
+        "outputId": "c4f34cfa-3455-451d-b2c9-e19d7185ef16"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Are A and B disjoint sets: False\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Join A with B and B with A\n",
+        "union_A_with_B = A | B\n",
+        "union_B_with_A = B | A\n",
+        "print(f\"Union of A with B: {union_A_with_B}\")\n",
+        "print(f\"Union of B with A: {union_B_with_A}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Y6U_5579Mb90",
+        "outputId": "e4cb76aa-7258-4c91-98b8-81a0b8cb2b64"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Union of A with B: {19, 20, 22, 24, 25, 26, 27, 28}\n",
+            "Union of B with A: {19, 20, 22, 24, 25, 26, 27, 28}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# What is the symmetric difference between A and B\n",
+        "symmetric_diff = A ^ B\n",
+        "print(f\"Symmetric difference between A and B: {symmetric_diff}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "vJCRWwGBMdt-",
+        "outputId": "e9c46f3a-2591-4744-f3c0-421a6c76b72c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Symmetric difference between A and B: {27, 28}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Delete the sets completely\n",
+        "del A\n",
+        "del B\n"
+      ],
+      "metadata": {
+        "id": "9Mu6keJAMfmt"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 5. Create an empty dictionary called dog.Add name, color, breed, legs, age to the dog dictionary\n",
+        "# Create an empty dictionary\n",
+        "dog = {}\n",
+        "\n",
+        "# Add attributes to the dictionary\n",
+        "dog['name'] = 'Rex'\n",
+        "dog['color'] = 'Brown'\n",
+        "dog['breed'] = 'Labrador'\n",
+        "dog['legs'] = 4\n",
+        "dog['age'] = 5\n",
+        "\n",
+        "# Print the dictionary to verify\n",
+        "print(dog)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "TR5PIylGNvjG",
+        "outputId": "6af05d84-1214-4836-f378-c9b897543359"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "{'name': 'Rex', 'color': 'Brown', 'breed': 'Labrador', 'legs': 4, 'age': 5}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 6. Create a student dictionary and add first_name, last_name, gender, age, marital status, skills, country, city and address as keys for the dictionary\n",
+        "# Get the length of the student dictionary\n",
+        "# Create the student dictionary with initial values\n",
+        "student = {\n",
+        "    'first_name': 'John',\n",
+        "    'last_name': 'Doe',\n",
+        "    'gender': 'Male',\n",
+        "    'age': 20,\n",
+        "    'marital_status': 'Single',\n",
+        "    'skills': ['Python', 'JavaScript'],\n",
+        "    'country': 'USA',\n",
+        "    'city': 'New York',\n",
+        "    'address': '123 Main St'\n",
+        "}\n",
+        "length = len(student)\n",
+        "print(f\"Length of the student dictionary: {length}\")\n",
+        "\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "R3_LnA3uOF91",
+        "outputId": "deaaa6df-b263-46d4-9cf0-253542965d17"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Length of the student dictionary: 9\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Get the value of skills and check the data type, it should be a list\n",
+        "skills = student['skills']\n",
+        "print(f\"Skills: {skills}\")\n",
+        "print(f\"Data type of skills: {type(skills)}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iJ8IykEQOS2N",
+        "outputId": "2183f1a3-0eba-4df9-b5a9-79fc36c5bbfc"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Skills: ['Python', 'JavaScript']\n",
+            "Data type of skills: <class 'list'>\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Modify the skills values by adding one or two skills\n",
+        "student['skills'].extend(['Django', 'Flask'])\n",
+        "print(f\"Updated skills: {student['skills']}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "orKqRdoLOUP1",
+        "outputId": "041870ed-94d0-4687-eadd-2786822eefed"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Updated skills: ['Python', 'JavaScript', 'Django', 'Flask']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Get the dictionary keys as a list\n",
+        "keys_list = list(student.keys())\n",
+        "print(f\"Dictionary keys: {keys_list}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PahBkkXNOViO",
+        "outputId": "12aa176a-b813-4fa6-afe9-200c6cd0558d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Dictionary keys: ['first_name', 'last_name', 'gender', 'age', 'marital_status', 'skills', 'country', 'city', 'address']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Get the dictionary values as a list\n",
+        "values_list = list(student.values())\n",
+        "print(f\"Dictionary values: {values_list}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "u8kvCvXdOXCs",
+        "outputId": "23eb135c-8392-4b2c-97d4-a79a77247f1b"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Dictionary values: ['John', 'Doe', 'Male', 20, 'Single', ['Python', 'JavaScript', 'Django', 'Flask'], 'USA', 'New York', '123 Main St']\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Change the dictionary to a list of tuples using _items()_ method\n",
+        "items_list = list(student.items())\n",
+        "print(f\"Dictionary items as a list of tuples: {items_list}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OzESbKluOYfF",
+        "outputId": "05757ae1-282b-4158-c202-bfc39edbde0d"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Dictionary items as a list of tuples: [('first_name', 'John'), ('last_name', 'Doe'), ('gender', 'Male'), ('age', 20), ('marital_status', 'Single'), ('skills', ['Python', 'JavaScript', 'Django', 'Flask']), ('country', 'USA'), ('city', 'New York'), ('address', '123 Main St')]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Delete one of the items in the dictionary\n",
+        "del student['address']\n",
+        "print(f\"Student dictionary after deleting address: {student}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "kCEXPy7cOazs",
+        "outputId": "f0c8501e-52e4-42fc-b60c-4dc9387622bb"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Student dictionary after deleting address: {'first_name': 'John', 'last_name': 'Doe', 'gender': 'Male', 'age': 20, 'marital_status': 'Single', 'skills': ['Python', 'JavaScript', 'Django', 'Flask'], 'country': 'USA', 'city': 'New York'}\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Delete one of the dictionaries\n",
+        "del student\n"
+      ],
+      "metadata": {
+        "id": "mh9WtpbTOcAl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 7.Create a person dictionary.\n",
+        "#   person={\n",
+        "#     'first_name': 'Asabeneh',\n",
+        "#     'last_name': 'Yetayeh',\n",
+        "#     'age': 250,\n",
+        "#     'country': 'Finland',\n",
+        "#     'is_marred': True,\n",
+        "#     'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],\n",
+        "#     'address': {\n",
+        "#         'street': 'Space street',\n",
+        "#         'zipcode': '02210'\n",
+        "#     }\n",
+        "#     }\n",
+        "# Check if the person dictionary has skills key, if so print out the middle skill in the skills list.\n",
+        "# Check if the person dictionary has skills key, if so check if the person has 'Python' skill and print out the result.\n",
+        "# If a person skills has only JavaScript and React, print('He is a front end developer'), if the person skills has Node, Python, MongoDB, print('He is a backend developer'), if the person skills has React, Node and MongoDB, Print('He is a fullstack developer'), else print('unknown title') - for more accurate results more conditions can be nested!\n",
+        "# If the person is married and if he lives in Finland, print the information in the following format:\n",
+        "\n",
+        "# ```py\n",
+        "#     Asabeneh Yetayeh lives in Finland. He is married.\n",
+        "# ``\n",
+        "# Create the person dictionary\n",
+        "person = {\n",
+        "    'first_name': 'Asabeneh',\n",
+        "    'last_name': 'Yetayeh',\n",
+        "    'age': 250,\n",
+        "    'country': 'Finland',\n",
+        "    'is_married': True,\n",
+        "    'skills': ['JavaScript', 'React', 'Node', 'MongoDB', 'Python'],\n",
+        "    'address': {\n",
+        "        'street': 'Space street',\n",
+        "        'zipcode': '02210'\n",
+        "    }\n",
+        "}\n",
+        "\n",
+        "# Check if 'skills' key exists\n",
+        "if 'skills' in person:\n",
+        "    skills = person['skills']\n",
+        "    # Find and print the middle skill\n",
+        "    n = len(skills)\n",
+        "    if n % 2 == 1:\n",
+        "        middle_skill = skills[n // 2]\n",
+        "        print(f\"Middle skill: {middle_skill}\")\n",
+        "    else:\n",
+        "        middle_skills = skills[n // 2 - 1:n // 2 + 1]\n",
+        "        print(f\"Middle skills: {middle_skills}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "fowaBtTeSU_1",
+        "outputId": "6e5fcdfe-77ad-4c4d-966d-df37b8219447"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Middle skill: Node\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Check if 'skills' key exists and if 'Python' is in the list\n",
+        "if 'skills' in person:\n",
+        "    has_python = 'Python' in person['skills']\n",
+        "    print(f\"Has Python skill: {has_python}\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "22NqRMqESY5V",
+        "outputId": "d086ab59-fe68-4af6-932e-6832f4569c2f"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Has Python skill: True\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Determine the title based on skills\n",
+        "if 'skills' in person:\n",
+        "    skills = person['skills']\n",
+        "\n",
+        "    if 'JavaScript' in skills and 'React' in skills and len(skills) == 2:\n",
+        "        print('He is a front end developer')\n",
+        "    elif 'Node' in skills and 'Python' in skills and 'MongoDB' in skills:\n",
+        "        print('He is a backend developer')\n",
+        "    elif 'React' in skills and 'Node' in skills and 'MongoDB' in skills:\n",
+        "        print('He is a fullstack developer')\n",
+        "    else:\n",
+        "        print('unknown title')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "_E1Gd8kjSaUP",
+        "outputId": "64383347-8e68-457a-a5aa-e3c346dbda9c"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "He is a backend developer\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Print information if married and lives in Finland\n",
+        "if person.get('is_married') and person.get('country') == 'Finland':\n",
+        "    print(f\"{person['first_name']} {person['last_name']} lives in {person['country']}. He is married.\")\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "rpOcYcqIScIl",
+        "outputId": "532a8236-9f4d-4496-f186-5fe221e573cd"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Asabeneh Yetayeh lives in Finland. He is married.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# 8. Print the season name of the year based on the month number using a dictionary.\n",
+        "# Create a dictionary mapping month numbers to seasons\n",
+        "seasons = {\n",
+        "    1: 'Winter',   # January\n",
+        "    2: 'Winter',   # February\n",
+        "    3: 'Spring',   # March\n",
+        "    4: 'Spring',   # April\n",
+        "    5: 'Spring',   # May\n",
+        "    6: 'Summer',   # June\n",
+        "    7: 'Summer',   # July\n",
+        "    8: 'Summer',   # August\n",
+        "    9: 'Autumn',   # September\n",
+        "    10: 'Autumn',  # October\n",
+        "    11: 'Autumn',  # November\n",
+        "    12: 'Winter'   # December\n",
+        "}\n",
+        "\n",
+        "# Function to print the season based on month number\n",
+        "def print_season(month_number):\n",
+        "    # Check if month_number is valid\n",
+        "    if 1 <= month_number <= 12:\n",
+        "        season = seasons[month_number]\n",
+        "        print(f\"Month {month_number} corresponds to {season}.\")\n",
+        "    else:\n",
+        "        print(\"Invalid month number. Please enter a number between 1 and 12.\")\n",
+        "\n",
+        "# Example usage\n",
+        "print_season(1)\n",
+        "print_season(4)\n",
+        "print_season(8)\n",
+        "print_season(12)\n",
+        "print_season(15)\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "2E6jr9P4SmcF",
+        "outputId": "051e0666-8341-4656-d5ab-7516afad3f04"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Month 1 corresponds to Winter.\n",
+            "Month 4 corresponds to Spring.\n",
+            "Month 8 corresponds to Summer.\n",
+            "Month 12 corresponds to Winter.\n",
+            "Invalid month number. Please enter a number between 1 and 12.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "6Cm1zWy_UNKC"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
